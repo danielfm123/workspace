@@ -1,0 +1,27 @@
+profile,name,id
+devel,Tier 2vCPU 0.5GB,t3a.nano
+devel,Tier 2vCPU 1GB,t3a.micro
+devel,Tier 2vCPU 2GB,t3a.small
+devel,Tier 2vCPU 4GB,t3a.medium
+devel,Tier 2vCPU 8GB,t3a.large
+devel,Tier 4vCPU 16GB,t3a.xlarge
+devel,Tier 8vCPU 32GB,t3a.2xlarge
+amd,Mult 2vCPU 8GB,m5a.large
+amd,Mult 4vCPU 16GB,m5a.xlarge
+amd,Mult 8vCPU 32GB,m5a.2xlarge
+amd,Mult 16vCPU 64GB,m5a.4xlarge
+amd,Mult 48vCPU 192GB,m5a.12xlarge
+amd,Mult 96vCPU 384GB,m5a.24xlarge
+amd,RAM 2vCPU 16GB,r5a.large
+amd,RAM 4vCPU 32GB,r5a.xlarge
+amd,RAM 8vCPU 64GB,r5a.2xlarge
+amd,RAM 16vCPU 128GB,r5a.4xlarge
+amd,RAM 48vCPU 384GB,r5a.12xlarge
+amd,RAM 96vCPU 768GB,r5a.24xlarge
+intel,Comp 2vCPU 4GB,c5.large
+intel,Comp 4vCPU 8GB,c5.xlarge
+intel,Comp 8vCPU 16GB,c5.2xlarge
+intel,Comp 16vCPU 32GB,c5.4xlarge
+intel,Comp 36vCPU 72GB,c5.9xlarge
+intel,Comp 72vCPU 144GB,c5.18xlarge
+intel,Comp 96vCPU 196GB,c5.24xlarge

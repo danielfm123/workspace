@@ -24,7 +24,7 @@ class mainWindow(QMainWindow):
         super(mainWindow,self).__init__(parent)
 
         self.setMinimumWidth(500)
-        self.setWindowTitle("Metric WorkSpace")
+        self.setWindowTitle("danielfm123 WorkSpace")
         self.setWindowIcon(QIcon(resource_path(os.path.join('files','ec2.png') )))
 
         self.setCentralWidget(mainWidget(self))

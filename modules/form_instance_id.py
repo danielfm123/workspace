@@ -56,12 +56,17 @@ class idEc2Form(QDialog):
         self.keys.addWidget(self.combo_ec2, 0, 1)
         self.keys.addWidget(QLabel("Operating System"), 1, 0)
         self.keys.addWidget(self.os, 1, 1)
+        self.user = QLineEdit()
+        self.user.setText(settings.getParam('user'))
+        self.keys.addWidget(QLabel('Ec2 User'),2,0)
+        self.keys.addWidget(self.user, 2, 1)
         self.pwd = QLineEdit()
+        self.pwd.setText(settings.getParam('ec2_passwd'))
         self.pwd.setEchoMode(QLineEdit.Password)
-        self.keys.addWidget(QLabel("Lab Current Password"), 2, 0)
-        self.keys.addWidget(self.pwd, 2, 1)
-        self.keys.addWidget(QLabel("Default Bucket"), 3, 0)
-        self.keys.addWidget(self.bucket, 3, 1)
+        self.keys.addWidget(QLabel("Ec2 Current Password"), 3, 0)
+        self.keys.addWidget(self.pwd, 3, 1)
+        self.keys.addWidget(QLabel("Default Bucket"), 4, 0)
+        self.keys.addWidget(self.bucket, 4, 1)
         self.bucket.setCurrentText(settings.getParam("bucket"))
         self.save = QPushButton("Save")
         self.save.clicked.connect(self.save_to_file)
@@ -79,10 +84,7 @@ class idEc2Form(QDialog):
         #settings.setParam('team', self.bucket.currentText()) #legacy
         settings.setParam('bucket', self.bucket.currentText())
         settings.setParam('ec2_passwd', self.pwd.text())
-        if self.os.currentText() == 'Windows':
-            settings.setParam('user', 'Administrator')
-        else:
-            settings.setParam('user', 'user')
+        settings.setParam('user', self.user.text())
         settings.writeParams()
         self.parent.parent.refresh()
 

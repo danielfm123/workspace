@@ -16,16 +16,16 @@ class tabSetup(QWidget):
         saveid = QPushButton('Set Credentials')
         saveid.clicked.connect(self.fn_saveid)
 
-        ec2 = QPushButton('Select Lab Studio and Default Bucket')
+        ec2 = QPushButton('Select Ec2 and Default Bucket')
         ec2.clicked.connect(self.fn_set_ec2)
 
         pwd = QPushButton('Set Password on Lab')
         pwd.clicked.connect(self.fn_set_pwd)
 
-        ec2_api = QPushButton('Upload your Settings to Studio')
+        ec2_api = QPushButton('Upload your Settings to Ec2')
         ec2_api.clicked.connect(self.fn_upload_api)
 
-        add_bucket = QPushButton("Connect Bucket on Lab")
+        add_bucket = QPushButton("Connect Bucket on Ec2")
         add_bucket.clicked.connect(self.fn_add_bucket)
 
         layout.addWidget(saveid)

@@ -101,13 +101,16 @@ FLT = '[{{"Field": "tenancy", "Value": "shared", "Type": "TERM_MATCH"}},'\
 
 # Get current AWS price for an on-demand instance
 def get_price(instance, region='US East (N. Virginia)' ,os='Linux'):
-    client = boto3.client('pricing',aws_access_key_id=settings.getParam("id"),aws_secret_access_key=settings.getParam("key"))
-    f = FLT.format(r=region, t=instance, o=os)
-    data = client.get_products(ServiceCode='AmazonEC2', Filters=json.loads(f))
-    od = json.loads(data['PriceList'][0])['terms']['OnDemand']
-    id1 = list(od)[0]
-    id2 = list(od[id1]['priceDimensions'])[0]
-    return od[id1]['priceDimensions'][id2]['pricePerUnit']['USD']
+    try:
+        client = boto3.client('pricing',aws_access_key_id=settings.getParam("id"),aws_secret_access_key=settings.getParam("key"))
+        f = FLT.format(r=region, t=instance, o=os)
+        data = client.get_products(ServiceCode='AmazonEC2', Filters=json.loads(f))
+        od = json.loads(data['PriceList'][0])['terms']['OnDemand']
+        id1 = list(od)[0]
+        id2 = list(od[id1]['priceDimensions'])[0]
+        return od[id1]['priceDimensions'][id2]['pricePerUnit']['USD']
+    except:
+        return 'Price not found'
 
 # Translate region code to region name
 def get_region_name(region_code):
